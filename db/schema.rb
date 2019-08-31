@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_31_143822) do
+ActiveRecord::Schema.define(version: 2019_08_31_155642) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "progresses", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "todo_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["todo_id"], name: "index_progresses_on_todo_id"
+    t.index ["user_id"], name: "index_progresses_on_user_id"
+  end
 
   create_table "todos", force: :cascade do |t|
     t.string "photo"
@@ -34,4 +43,6 @@ ActiveRecord::Schema.define(version: 2019_08_31_143822) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "progresses", "todos"
+  add_foreign_key "progresses", "users"
 end
