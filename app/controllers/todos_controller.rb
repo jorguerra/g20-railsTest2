@@ -1,10 +1,10 @@
 class TodosController < ApplicationController
   before_action :set_todo, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:index]
   # GET /todos
   # GET /todos.json
   def index
-    @todos = Todo.all
+    @todos = Todo.limit(9)
   end
 
   # GET /todos/1
