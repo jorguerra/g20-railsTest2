@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   def index
-    @tasks = Todo.limit(9)
+    @todos = Todo.limit(9)
   end
 
   def completed
