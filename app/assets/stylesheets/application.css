@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+#completadas
+{
+  color: lightgrey
+}
+#login-logout,#login-logout:active, #login-logout:visited, #login-logout:hover{
+  color: white;
+  text-decoration: none;
+}

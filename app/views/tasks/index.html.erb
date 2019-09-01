@@ -5,7 +5,6 @@
         <div class="col todo">
           <%= image_tag todo.photo , class: 'img-fluid' %>
           <h4><%= todo.title %></h4>
-          <br>
           <%= showTodoBoton todo if user_signed_in? %>
         </div>
     <% end %>
