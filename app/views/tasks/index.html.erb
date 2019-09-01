@@ -1,1 +1,27 @@
+<div class="container">
+  <div class="row">
+    <% @todos.each_slice(3) do |row| %>
+      <% row.each do |todo| %>
+        <div class="col todo">
+          <%= image_tag todo.photo , class: 'img-fluid' %>
+          <h4><%= todo.title %></h4>
+          <br>
+          <%= showTodoBoton todo if user_signed_in? %>
+        </div>
+    <% end %>
+    <div class="w-100"></div>
+  <% end %>
+  </div>
+</div>
 
+<style media="screen">
+ img{
+   max-height: 200px
+ }
+ .col.todo{
+   border: 1px solid lightblue;
+   margin-bottom:2em;
+   text-align:center;
+   padding: 0.8em 0
+ }
+</style>
