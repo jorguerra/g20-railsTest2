@@ -14,31 +14,9 @@
   </div>
 </div>
 
-<style media="screen">
- img{
-   max-height: 200px
- }
- .col.todo{
-   border: 1px solid lightblue;
-   margin-bottom:2em;
-   text-align:center;
-   padding: 0.8em 0
- }
-
- .updated{
-   font-size: small;
-   color: darkgrey;
-   font-weight: 500;
- }
-</style>
-
-<script
-  src="https://code.jquery.com/jquery-2.2.4.min.js"
-  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-  crossorigin="anonymous"></script>
 <script>
   $(document).ready(function(){
-    links = $('a[data-time]')
+    let links = $('a[data-time]')
     for(var i = 0; i < links.length; i++){
       let id = $(links[i]).parents('.todo')[0].id
       let update = ''

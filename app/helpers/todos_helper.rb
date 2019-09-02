@@ -6,9 +6,9 @@ module TodosHelper
     time = ''
     time = time_ago_in_words(progress.updated_at) if progress
     if no_listo
-     link_to 'No listo', completed_path(todo: todo), method: :post, class: 'btn btn-primary', 'data-time': time
+     link_to 'Listo', completed_path(todo: todo), method: :post, class: 'btn btn-primary', 'data-time': time
     else
-     link_to 'Listo', uncompleted_path(todo: todo), method: :delete, class: 'btn btn-danger', 'data-time': time
+     link_to 'NO Listo', uncompleted_path(todo: todo), method: :delete, class: 'btn btn-danger', 'data-time': time
     end
   end
 
