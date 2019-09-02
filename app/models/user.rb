@@ -7,10 +7,4 @@ class User < ApplicationRecord
   has_many :progress
   has_many :todos, through: :progress
 
-  def has_todo?(todo)
-   self.todos.each do |t|
-     return true if t == todo
-   end
-   false
-  end
 end

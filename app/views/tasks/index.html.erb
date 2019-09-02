@@ -2,9 +2,10 @@
   <div class="row">
     <% @todos.each_slice(3) do |row| %>
       <% row.each do |todo| %>
-        <div class="col todo">
+        <div class="col todo" id="<%=todo.id%>">
           <%= image_tag todo.photo , class: 'img-fluid' %>
           <h4><%= todo.title %></h4>
+          <span class="updated"></span><br>
           <%= showTodoBoton todo if user_signed_in? %>
         </div>
     <% end %>
@@ -23,4 +24,28 @@
    text-align:center;
    padding: 0.8em 0
  }
+
+ .updated{
+   font-size: small;
+   color: darkgrey;
+   font-weight: 500;
+ }
 </style>
+
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+<script>
+  $(document).ready(function(){
+    links = $('a[data-time]')
+    for(var i = 0; i < links.length; i++){
+      let id = $(links[i]).parents('.todo')[0].id
+      let update = ''
+      if ($(links[i]).data('time')) {
+        update = "Last updated " + $(links[i]).data('time')
+      }
+      $('#' + id + ' .updated').text(update)
+    }
+  })
+</script>
